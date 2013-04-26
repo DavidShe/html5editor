@@ -28,7 +28,6 @@ Text.move = function(evnt)
 {
     Text.x = evnt.clientX;
     Text.y = evnt.clientY;
-    // Начинаем рисованть новую линию из той же точки.
     Canva.ctx.moveTo(Text.x, Text.y);
     showTextDialog(Text.x,Text.y)
 };

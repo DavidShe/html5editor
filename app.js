@@ -138,27 +138,6 @@ function hideTextDialog(){
     $('#itext').parent().hide();
 }
 
-function convertCanvas(strType) {
-    if (strType == "PNG")
-        var oImg = Canvas2Image.saveAsPNG(oCanvas, true);
-    if (strType == "BMP")
-        var oImg = Canvas2Image.saveAsBMP(oCanvas, true);
-    if (strType == "JPEG")
-        var oImg = Canvas2Image.saveAsJPEG(oCanvas, true);
-
-    if (!oImg) {
-        alert("Sorry, this browser is not capable of saving " + strType + " files!");
-        return false;
-    }
-
-    oImg.id = "canvasimage";
-
-    oImg.style.border = oCanvas.style.border;
-    oCanvas.parentNode.replaceChild(oImg, oCanvas);
-
-    showDownloadText();
-}
-
 function saveCanvas(pCanvas, strType) {
     var bRes = false;
     if (strType == "PNG")

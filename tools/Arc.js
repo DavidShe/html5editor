@@ -9,10 +9,8 @@ Arc.start = function(evnt)
     Arc.r = 10;
 
     Canva.ctx.beginPath();
-    // Свойства рисования
     Canva.ctx.strokeStyle = Canva.selectedColor;
     Canva.ctx.lineWidth = Canva.selectedWidth;
-    //Canva.ctx.moveTo(Arc.x, Arc.y); // Курсор на начальную позицию
 
     Canva.drawing = true; // Начато рисование
 };
@@ -20,8 +18,6 @@ Arc.start = function(evnt)
 // Рисование закончили
 Arc.finish = function(evnt)
 {
-//    Arc.x = evnt.clientX;
-//    Arc.y = evnt.clientY;
     Canva.ctx.arc(Arc.x,Arc.y,Arc.r,0,Math.PI,false);
     Canva.ctx.stroke();
     Canva.drawing = false;
@@ -30,9 +26,17 @@ Arc.finish = function(evnt)
 // Рисование в разгаре
 Arc.move = function(evnt)
 {
+    var flag = (x>y);
     if(evnt.x>Arc.x)
         Arc.r = evnt.x - Arc.x;
-    else if(evnt.y>Arc.y)
+    else
+        Arc.r = Arc.x - evnt.x;
+
+    if(flag) return;
+
+    if(evnt.y>Arc.y)
         Arc.r = evnt.y-Arc.y;
+    else
+        Arc.r = Arc.y-evnt.y;
     // Canva.ctx.moveTo(evnt.x, evnt.y);
 };

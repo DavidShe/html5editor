@@ -32,6 +32,7 @@ Direct.finish = function(evnt)
     Canva.ctx.moveTo(Direct.x+90,Direct.y-30);
     Canva.ctx.quadraticCurveTo(Direct.x+110,Direct.y,Direct.x+90,Direct.y+30);
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

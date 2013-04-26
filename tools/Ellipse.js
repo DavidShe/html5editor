@@ -23,7 +23,8 @@ Ellipse.finish = function(evnt)
 //    Ellipse.x = evnt.clientX;
 //    Ellipse.y = evnt.clientY;
     Canva.ctx.arc(Ellipse.x,Ellipse.y,Ellipse.r,0,2*Math.PI,false);
-    Canva.ctx.stroke();
+    Canva.ctx.stroke();Canva.ctx.fill();
+
     Canva.drawing = false;
 };
 

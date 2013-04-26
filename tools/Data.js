@@ -30,6 +30,7 @@ Data.finish = function(evnt)
     Canva.ctx.lineTo(Data.x+Data.width,Data.y);
 //    Canva.ctx.lineTo()
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

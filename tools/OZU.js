@@ -28,6 +28,7 @@ OZU.finish = function(evnt)
     Canva.ctx.moveTo(OZU.x,OZU.y+OZU.height/5);
     Canva.ctx.lineTo(OZU.x+OZU.width,OZU.y+OZU.height/5);
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

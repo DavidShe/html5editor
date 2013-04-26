@@ -5,8 +5,10 @@
     <!-- Including Vendor libraries -->
     <script src='/vendor/excanvas.js'></script>
     <script src='/vendor/jquery.js'></script>
+    <script src='/vendor/canvas2img.js'></script>
     <!-- Include tools -->
     <script src='/tools/Line.js'></script>
+    <script src='/tools/Erase.js'></script>
     <script src='/tools/Rectangle.js'></script>
     <script src='/tools/Triangle.js'></script>
     <script src='/tools/Point.js'></script>
@@ -17,6 +19,9 @@
     <script src='/tools/OZU.js'></script>
     <script src='/tools/Direct.js'></script>
     <script src='/tools/Document.js'></script>
+    <script src='/tools/Manual.js'></script>
+    <script src='/tools/Display.js'></script>
+    <script src='/tools/Text.js'></script>
 
     <!-- Include core libraries -->
     <script src='app.js'></script>
@@ -26,20 +31,129 @@
 <body>
 <div id="controls">
     <ul>
-        <li>
+        <li class="selected">
             Line
         </li>
         <li>
             Rectangle
         </li>
+        <li>
+            Arc
+        </li>
+        <li>
+            Ellipse
+        </li>
+        <li>
+            Point
+        </li>
+        <li>
+            Triangle
+        </li>
+        <li>
+            Data
+        </li>
+        <li>
+            Direct
+        </li>
+        <li>
+            Display
+        </li>
+        <li>
+            Document
+        </li>
+        <li>
+            Manual
+        </li>
+        <li>
+            OZU
+        </li>
+        <li>
+            Stored
+        </li>
+        <li>
+            Erase
+        </li>
+        <li>
+            Text
+        </li>
     </ul>
 </div>
+
+
+
 <canvas id="myCanvas" width="200" height="100"
         style="border:1px solid #000000;">
 </canvas>
+<br>
+    Fill color: <input type='color' id='color' onchange='fillcolor(this)'>
+
+    Line color: <input type='color' id='color' onchange='color(this)'>
+    Line width: <select onchange = 'lineWidth(this)'>
+        <option value='1'>1px</option>
+        <option value='2'>2px</option>
+        <option value='3'>3px</option>
+    </select>
+    <button onClick='Canva.clear()'>
+        Clear all
+    </button>
+<input type="button" id="savepngbtn" value="Save PNG">
+<input type="button" id="convertpngbtn" value="Convert to PNG"><br>
+<input type="button" id="savebmpbtn" value="Save BMP">
+<input type="button" id="convertbmpbtn" value="Convert to BMP">
+<input type="button" id="savejpegbtn" value="Save JPEG">
+<input type="button" id="convertjpegbtn" value="Convert to JPEG">
+<input type="button" id="resetbtn" value="Return to Canvas">
 <script type="text/javascript">
     // Сделаем рисовалку во всю страницу
+
+    var oCanvas = $("#myCanvas")[0];
     Canva.init('myCanvas', window.innerWidth/2, window.innerHeight/2);
+
+        $("#controls li").click(function(){
+            $("ul li").removeClass("selected");
+            $(this).addClass("selected");
+            eval("Canva.setTool("+$(this).html()+")");
+        });
+
+    // event handlers for options
+
+    function fillcolor(el){
+        Canva.selectedFillColor = el.value;
+    }
+
+    function lineWidth(el){
+        if(parseInt(el.value)>0)
+            Canva.selectedWidth = el.value;
+    }
+
+    function color(el){
+        Canva.selectedColor = el.value;
+    }
+
+    document.getElementById("savepngbtn").onclick = function() {
+        saveCanvas(oCanvas, "PNG");
+    }
+    document.getElementById("savebmpbtn").onclick = function() {
+        saveCanvas(oCanvas, "BMP");
+    }
+    document.getElementById("savejpegbtn").onclick = function() {
+        saveCanvas(oCanvas, "JPEG");
+    }
+
+    document.getElementById("convertpngbtn").onclick = function() {
+        convertCanvas("PNG");
+    }
+    document.getElementById("convertbmpbtn").onclick = function() {
+        convertCanvas("BMP");
+    }
+    document.getElementById("convertjpegbtn").onclick = function() {
+        convertCanvas("JPEG");
+    }
+
+    document.getElementById("resetbtn").onclick = function() {
+        var oImg = document.getElementById("canvasimage");
+        oImg.parentNode.replaceChild(oCanvas, oImg);
+    }
 </script>
 </body>
 </html>

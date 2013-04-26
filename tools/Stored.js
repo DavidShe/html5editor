@@ -30,6 +30,7 @@ Stored.finish = function(evnt)
     Canva.ctx.moveTo(Stored.x+90,Stored.y-30);
     Canva.ctx.quadraticCurveTo(Stored.x+70,Stored.y,Stored.x+90,Stored.y+30);
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

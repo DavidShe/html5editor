@@ -31,6 +31,7 @@ Document.finish = function(evnt)
     Canva.ctx.bezierCurveTo(Document.x+20,Document.y+50,Document.x+70,Document.y+20,Document.x+90,Document.y+30);
 
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

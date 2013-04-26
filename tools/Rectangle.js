@@ -24,6 +24,7 @@ Rectangle.finish = function(evnt)
     Rectangle.y = evnt.clientY;
     Canva.ctx.rect(Rectangle.x, Rectangle.y,Rectangle.width,Rectangle.height); // Дорисовываем последнюю линию
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

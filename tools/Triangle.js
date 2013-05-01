@@ -11,7 +11,9 @@ Triangle.start = function(evnt)
     Canva.ctx.beginPath();
     // Свойства рисования
     Canva.ctx.strokeStyle = Canva.selectedColor;
+    Canva.ctx.fillStyle = Canva.selectedFillColor;
     Canva.ctx.lineWidth = Canva.selectedWidth;
+
     Canva.ctx.moveTo(Triangle.x, Triangle.y); // Курсор на начальную позицию
 
     Canva.drawing = true; // Начато рисование
@@ -25,9 +27,9 @@ Triangle.finish = function(evnt)
     Canva.ctx.lineTo(Triangle.x2, Triangle.y2);
     Canva.ctx.moveTo(Triangle.x,Triangle.y);
     Canva.ctx.lineTo(Triangle.x2,Triangle.y);
-    Canva.ctx.moveTo(Triangle.x2,Triangle.y);
     Canva.ctx.lineTo(Triangle.x2,Triangle.y2);
     Canva.ctx.stroke();
+    Canva.ctx.fill();
     Canva.drawing = false;
 };
 

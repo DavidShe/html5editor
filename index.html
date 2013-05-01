@@ -97,12 +97,8 @@
         Clear all
     </button>
 <input type="button" id="savepngbtn" value="Save PNG">
-<input type="button" id="convertpngbtn" value="Convert to PNG"><br>
 <input type="button" id="savebmpbtn" value="Save BMP">
-<input type="button" id="convertbmpbtn" value="Convert to BMP">
 <input type="button" id="savejpegbtn" value="Save JPEG">
-<input type="button" id="convertjpegbtn" value="Convert to JPEG">
-<input type="button" id="resetbtn" value="Return to Canvas">
 <script type="text/javascript">
     // Сделаем рисовалку во всю страницу
 
@@ -138,21 +134,6 @@
     }
     document.getElementById("savejpegbtn").onclick = function() {
         saveCanvas(oCanvas, "JPEG");
-    }
-
-    document.getElementById("convertpngbtn").onclick = function() {
-        convertCanvas("PNG");
-    }
-    document.getElementById("convertbmpbtn").onclick = function() {
-        convertCanvas("BMP");
-    }
-    document.getElementById("convertjpegbtn").onclick = function() {
-        convertCanvas("JPEG");
-    }
-
-    document.getElementById("resetbtn").onclick = function() {
-        var oImg = document.getElementById("canvasimage");
-        oImg.parentNode.replaceChild(oCanvas, oImg);
     }
 </script>
 </body>

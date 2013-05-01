@@ -126,12 +126,9 @@ function createTextDialog(x,y){
 
 function showTextDialog(x,y){
     if($('#itext').length>0){
-        $('#itext').show();
-        $('#itext').css('top',y+'px');
-        $('#itext').css('left',x+'px');
+        $('#itext').parent().children().remove()
     }
-    else
-        createTextDialog(x,y);
+    createTextDialog(x,y);
 }
 
 function hideTextDialog(){
@@ -153,21 +150,3 @@ function saveCanvas(pCanvas, strType) {
     }
 }
 
-function convertCanvas(strType) {
-    if (strType == "PNG")
-        var oImg = Canvas2Image.saveAsPNG(oCanvas, true);
-    if (strType == "BMP")
-        var oImg = Canvas2Image.saveAsBMP(oCanvas, true);
-    if (strType == "JPEG")
-        var oImg = Canvas2Image.saveAsJPEG(oCanvas, true);
-
-    if (!oImg) {
-        alert("Sorry, this browser is not capable of saving " + strType + " files!");
-        return false;
-    }
-
-    oImg.id = "canvasimage";
-
-    oImg.style.border = oCanvas.style.border;
-    document.body.replaceChild(oImg, oCanvas);
-}

@@ -11,6 +11,7 @@ Document.start = function(evnt)
     Canva.ctx.beginPath();
     // Свойства рисования
     Canva.ctx.strokeStyle = Canva.selectedColor;
+    Canva.ctx.fillStyle = Canva.selectedFillColor;
     Canva.ctx.lineWidth = Canva.selectedWidth;
     //Canva.ctx.moveTo(Document.x, Document.y); // Курсор на начальную позицию
 

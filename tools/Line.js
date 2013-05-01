@@ -22,7 +22,7 @@ Line.finish = function(evnt)
     Line.x = evnt.clientX;
     Line.y = evnt.clientY;
     Canva.ctx.lineTo(Line.x, Line.y); // Дорисовываем последнюю линию
-
+    Canva.ctx.stroke();
     Canva.drawing = false;
 };
 
@@ -31,8 +31,8 @@ Line.move = function(evnt)
 {
     Line.x = evnt.clientX;
     Line.y = evnt.clientY;
-    Canva.ctx.lineTo(Line.x, Line.y); // Дорисовываем начатую линию
+    //Canva.ctx.lineTo(Line.x, Line.y); // Дорисовываем начатую линию
     Canva.ctx.stroke();
     // Начинаем рисованть новую линию из той же точки.
-    Canva.ctx.moveTo(Line.x, Line.y);
+//    Canva.ctx.moveTo(Line.x, Line.y);
 };

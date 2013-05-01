@@ -11,6 +11,7 @@ Rectangle.start = function(evnt)
     Canva.ctx.beginPath();
     // Свойства рисования
     Canva.ctx.strokeStyle = Canva.selectedColor;
+    Canva.ctx.fillStyle = Canva.selectedFillColor;
     Canva.ctx.lineWidth = Canva.selectedWidth;
     Canva.ctx.moveTo(Rectangle.x, Rectangle.y); // Курсор на начальную позицию
 

@@ -12,6 +12,8 @@ Data.start = function(evnt)
     // Свойства рисования
     Canva.ctx.strokeStyle = Canva.selectedColor;
     Canva.ctx.lineWidth = Canva.selectedWidth;
+    Canva.ctx.fillStyle = Canva.selectedFillColor;
+
     Canva.ctx.moveTo(Data.x, Data.y); // Курсор на начальную позицию
 
     Canva.drawing = true; // Начато рисование
